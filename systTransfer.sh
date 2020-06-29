@@ -17,8 +17,13 @@ sed -i 's/1094\///g' replicaLists/files_${runYear}_*
 
 ls replicaLists/files_${runYear}_* > inReplicas_${runYear}.txt
 
+sysRun(){
+    while read s; do
+	python calcScaleNom.py $1 $2 $s
+    done<treeList.txt
+}
+
 #skim, transfer each to eos space
 while read a; do
-    fileArray=$(cat $a | tr '\n' ' ')
-    python calcScaleNom.py $a $runYear $fileArray
+    sysRun $a $runYear &
 done<inReplicas_$runYear.txt
