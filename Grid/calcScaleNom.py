@@ -59,4 +59,4 @@ def totWandXS(fileName, isSys):
         return (totW, xs)
 
 
-print totWandXS(sys.argv[1], 1)
+#print totWandXS(sys.argv[1], 1)

@@ -1,0 +1,6 @@
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364741a/out1/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364741a/out2/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364741a/out3/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364741a/out4/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364741a/out5/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364741a/out7/output.root

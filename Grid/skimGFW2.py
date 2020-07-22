@@ -92,6 +92,8 @@ for treeName in treeVec:
     df = df.Define("MLepMet","getMLepMet(lep_E_0,lep_Phi_0,lep_Eta_0,lep_Pt_0,lep_E_1,lep_Phi_1,lep_Eta_1,lep_Pt_1,lep_E_2,lep_Phi_2,lep_Eta_2,lep_Pt_2,lep_E_3,lep_Phi_3,lep_Eta_3,lep_Pt_3,lep_E_4,lep_Phi_4,lep_Eta_4,lep_Pt_4,met_met,met_phi)")
     df = df.Define("MtLepMet","getMtLepMet(lep_E_0,lep_Phi_0,lep_Eta_0,lep_Pt_0,lep_E_1,lep_Phi_1,lep_Eta_1,lep_Pt_1,lep_E_2,lep_Phi_2,lep_Eta_2,lep_Pt_2,lep_E_3,lep_Phi_3,lep_Eta_3,lep_Pt_3,lep_E_4,lep_Phi_4,lep_Eta_4,lep_Pt_4,met_met,met_phi)")
     df = df.Define("mjjMax_frwdJet","getdMaxMjjForwardJet(jets_pt, jets_eta, jets_phi, jets_e)")
+    df = df.Define("hasTop", "abs(m_truth_pdgId)==6")
+    df = df.Define("hasBjet", "abs(m_truth_pdgId)==5")
 
     #allCols = df.GetColumnNames()
     if isMC:
