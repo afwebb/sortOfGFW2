@@ -3,20 +3,19 @@ import json
 sys.path.insert(0, "python")
 import ROOT
 ROOT.gInterpreter.Declare('#include <functions.h>')
+from calcScaleNom import totWandXS
 
 #fileName = sys.argv[1]
 outName = sys.argv[2]
+#outRoot = ROOT.TFile.Open(outName, "READ")
 
 isMC=False
 
 #trees to skip over
 skipTrees=['sumWeights','truth','particleLevel', 'AnalysisTracking', 'loose', 'triggers']
-#outRoot = ROOT.TFile.Open(outName, "READ")
 #for key in outRoot.GetListOfKeys():
 #    kname = key.GetName()
 #    skipTrees.append(kname)
-
-print(skipTrees)
 #branches to remove
 blackList = ['weight_bTagSF_DL1_7.+','weight_bTagSF_DL1_6.+','weight_bTagSF_DL1_8.+','failJvt.+','taus_.+','m_truth.+','jets_.+','lep_.+_3','lep_.+4','jet_.+','ll.+3','ll.+4']
 nomBlackList = ['bTagSF_weight_DL1r_Continuous_']
@@ -24,12 +23,12 @@ nomBlackList = ['bTagSF_weight_DL1r_Continuous_']
 #inFiles = ROOT.vector('string')()
 fName = sys.argv[1]
 
-inList = ''#utils.get_files(sys.argv[1])
+inFiles = []#utils.get_files(sys.argv[1])
 for f in open(fName):
-    inList+=f.rstrip()
-    #inFiles.append(f.rstrip())
+    #inList+=f.rstrip()
+    inFiles.append(f.rstrip())
 
-inFiles = inList.split(',')
+#inFiles = inList.split(',')
 
 rootFile = ROOT.TFile.Open(inFiles[0], "READ")
 
@@ -45,22 +44,16 @@ for key in rootFile.GetListOfKeys():
 
     treeVec.append(kname)
 
-#treeVec=['nominal']
-if isMC:
-    totW    = float(sys.argv[3])
-    xs      = float(sys.argv[4])
-
 if len(treeVec)>2:
-    inVars = sys.argv[5]
-    inVars =inVars.replace('{s','{"s')
-    inVars =inVars.replace(', s',', "s')
-    inVars =inVars.replace('n:','n":')
-    inVars =inVars.replace('p:','p":')
-    scaleVars = json.loads(inVars)
-    print scaleVars
     doSys = True
 else:
     doSys = False
+
+if isMC:
+    if doSys:
+        totW, xs, scaleVars = totWandXS(fName, doSys)              
+    else:
+        totW, xs = totWandXS(fName, doSys)
 
 for treeName in treeVec:
     if 'TAUS' in treeName:
@@ -130,4 +123,5 @@ for treeName in treeVec:
     snapshotOptions = ROOT.RDF.RSnapshotOptions()
     #snapshotOptions.fLazy = True
     snapshotOptions.fMode = "UPDATE"
+    #l3DF.Snapshot(treeName, outName, brnch,snapshotOptions)
     df.Snapshot(treeName, outName, brnch,snapshotOptions)
