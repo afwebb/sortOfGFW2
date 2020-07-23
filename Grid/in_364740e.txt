@@ -2,8 +2,14 @@
 /eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out11/output.root
 /eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out12/output.root
 /eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out13/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out14/output.root.tmp
 /eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out15/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out16/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out17/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out18/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out19/output.root.tmp
 /eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out1/output.root
+/eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out20/output.root
 /eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out2/output.root
 /eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out3/output.root
 /eos/atlas/user/a/awebb/datasets/WZ_ab127/run_364740e/out4/output.root
